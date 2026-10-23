@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a1020">
+<title>CloudReady — AZ-900 Exam Coach</title>
+<style>
+:root{--bg:#080d19;--panel:#101a2d;--panel2:#14213a;--line:#263651;--text:#edf4ff;--muted:#9aacc8;--cyan:#59e1e8;--blue:#6d8cff;--violet:#a88bff;--green:#62e6b5;--red:#ff7d94;--shadow:0 20px 55px #0004}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#203568 0,transparent 36%),radial-gradient(ellipse at 5% 45%,#112b40 0,transparent 28%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,select{font:inherit}button{cursor:pointer;border:0;color:inherit;transition:.18s ease}button:disabled{cursor:not-allowed;opacity:.55;transform:none}button:disabled:hover{transform:none;filter:none}button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.skip-link{position:absolute;left:12px;top:-48px;z-index:30;padding:10px 14px;border-radius:10px;background:var(--cyan);color:#081425;font-weight:800;text-decoration:none}.skip-link:focus{top:12px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.shell{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{border-right:1px solid #ffffff12;padding:26px 17px;background:#080e1bd9;display:flex;flex-direction:column;gap:28px}.brand{display:flex;align-items:center;gap:12px;padding:0 9px}.brand-mark{width:39px;height:39px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue) 58%,var(--violet));display:grid;place-items:center;color:#071322;font-weight:900;font-size:20px;box-shadow:0 8px 28px #59e1e82b}.brand strong{font-size:17px;letter-spacing:.2px}.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:1.7px;text-transform:uppercase}
+.nav-label{font-size:10px;color:#657b9e;letter-spacing:1.8px;font-weight:800;padding:0 12px;margin-bottom:7px}.nav{display:grid;gap:6px}.nav button{background:transparent;color:var(--muted);text-align:left;padding:12px 13px;border-radius:12px;display:flex;align-items:center;gap:12px}.nav button:hover,.nav button.active{background:linear-gradient(90deg,#1b3152,#182741);color:#fff}.nav button.active{box-shadow:inset 3px 0 var(--cyan)}.ico{width:21px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;border:1px solid var(--line);background:linear-gradient(145deg,#14223b,#0f1728);border-radius:16px;padding:16px}.side-bottom p{color:var(--muted);font-size:12px;margin:7px 0 12px}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #59e1e84a;color:var(--cyan);padding:4px 8px;border-radius:100px;font-size:10px;letter-spacing:.7px;font-weight:800;text-transform:uppercase}
+main{padding:29px clamp(18px,4vw,54px) 48px;max-width:1500px;width:100%;margin:0 auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:2px;color:var(--cyan);font-weight:800;text-transform:uppercase}.topbar h1{font-size:clamp(23px,3vw,34px);letter-spacing:-1px;margin:5px 0 0}.top-actions{display:flex;align-items:center;gap:10px}.status{font-size:12px;color:var(--muted);display:flex;gap:7px;align-items:center}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px #62e6b5aa}
+.btn{border-radius:11px;padding:11px 16px;font-weight:750;font-size:13px;background:#1b2b48;border:1px solid #ffffff12}.btn:hover{transform:translateY(-1px);filter:brightness(1.13)}.btn.primary{background:linear-gradient(110deg,var(--cyan),#82b7ff);color:#081425;box-shadow:0 8px 25px #59e1e822}.btn.ghost{background:transparent;border-color:var(--line);color:var(--muted)}.btn.small{padding:8px 11px;font-size:12px}
+.page{display:none;animation:appear .24s ease}.page.active{display:block}.page[hidden]{display:none !important}@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.hero{display:grid;grid-template-columns:1.4fr .6fr;gap:22px;align-items:stretch}.hero-card{position:relative;overflow:hidden;border:1px solid #5471a04a;border-radius:23px;padding:clamp(23px,4vw,40px);background:linear-gradient(120deg,#182b4b 0%,#162340 48%,#20234b 100%);box-shadow:var(--shadow)}.hero-card:after{content:"";position:absolute;width:290px;height:290px;border-radius:50%;border:1px solid #8edff522;right:-80px;top:-115px;box-shadow:0 0 0 32px #8edff508,0 0 0 66px #8edff506}.hero-card h2{font-size:clamp(28px,3.5vw,43px);line-height:1.1;letter-spacing:-1.4px;margin:17px 0 12px;max-width:540px}.hero-card h2 span{background:linear-gradient(90deg,var(--cyan),#a9b6ff);color:transparent;background-clip:text}.hero-card p{max-width:510px;color:#b7c7e0;margin:0 0 23px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}.hero-art{display:grid;place-items:center;position:relative;min-height:180px}.orb{width:min(190px,70%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 25%,#7bf4ef,#448be5 37%,#5a4ab0 65%,#152340 72%);box-shadow:0 0 60px #478de955,inset -18px -20px 38px #08102077;position:relative}.orb:before,.orb:after{content:"";position:absolute;inset:-15px;border:1px solid #a1c8ff50;border-radius:50%;transform:rotate(-28deg) scaleY(.35)}.orb:after{transform:rotate(55deg) scaleY(.35)}.orb-core{position:absolute;inset:31%;border:1px solid #ffffff88;border-radius:14px;transform:rotate(45deg);background:#d7ffff27;backdrop-filter:blur(5px)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:20px 0}.stat,.card{border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#111d31eF,#0d1627ef);padding:19px;min-width:0}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;gap:5px}.stat-icon{width:31px;height:31px;display:grid;place-items:center;background:#263a5c;border-radius:10px;color:var(--cyan)}.stat strong{display:block;font-size:29px;letter-spacing:-1px;margin:13px 0 2px}.stat small{color:var(--muted);font-size:11px}.stat .positive{color:var(--green)}
+.grid-two{display:grid;grid-template-columns:1.1fr .9fr;gap:17px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}.section-head h3{font-size:16px;margin:0;letter-spacing:-.3px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.topic-list{display:grid;gap:17px}.topic-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;align-items:center}.topic-name{font-size:13px;font-weight:700}.topic-meta{font-size:11px;color:var(--muted);margin-top:3px}.bar{height:7px;border-radius:9px;background:#24324a;overflow:hidden;margin-top:8px}.bar span{height:100%;display:block;border-radius:9px;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .35s}.topic-score{font-size:12px;color:#d9e5fa;font-weight:800}.next-card{background:linear-gradient(145deg,#172c4a,#181b39);border:1px solid #5265a44f;border-radius:16px;padding:18px}.next-card .big-icon{font-size:25px}.next-card h4{margin:10px 0 6px;font-size:16px}.next-card p{margin:0 0 15px;color:var(--muted);font-size:12px}.activity-empty{border:1px dashed #33435e;border-radius:12px;padding:19px;text-align:center;color:var(--muted);font-size:12px}.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.domain-card{border:1px solid var(--line);border-radius:18px;padding:21px;background:linear-gradient(145deg,#14213a,#0e1728);display:flex;flex-direction:column;min-height:230px}.domain-card .num{font-size:11px;letter-spacing:1.5px;color:var(--cyan);font-weight:800}.domain-card h3{margin:15px 0 8px;font-size:18px;line-height:1.25}.domain-card p{color:var(--muted);font-size:12px;flex:1;margin:0 0 17px}.domain-card .count{font-size:11px;color:#b9c9e3;margin-bottom:15px}
+.quiz-wrap{max-width:850px;margin:0 auto}.quiz-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.quiz-progress{height:5px;background:#1d2a42;border-radius:10px;overflow:hidden;margin-bottom:19px}.quiz-progress span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));width:0;transition:width .25s}.quiz-card{border:1px solid var(--line);background:linear-gradient(145deg,#111d31,#0d1627);border-radius:20px;padding:clamp(20px,4vw,34px);box-shadow:var(--shadow)}.question-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:20px}.tag{border:1px solid #314462;background:#192943;color:#b9cce9;border-radius:7px;padding:5px 8px;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}.tag.easy{color:var(--green)}.question{font-size:clamp(20px,3vw,27px);letter-spacing:-.6px;line-height:1.35;margin:0 0 23px}.options{display:grid;gap:10px}.option{width:100%;display:flex;align-items:center;gap:13px;text-align:left;padding:14px;border-radius:12px;background:#131f34;border:1px solid #2b3c58;color:#dce8fa}.option:hover:not(:disabled){border-color:#6d8cff;background:#1a2a47}.option .letter{flex:0 0 29px;height:29px;border:1px solid #3c506e;border-radius:8px;display:grid;place-items:center;color:#a8bbd7;font-weight:800;font-size:12px}.option.selected{border-color:var(--cyan);background:#173447}.option.correct{border-color:var(--green);background:#15372f}.option.wrong{border-color:var(--red);background:#3b202e}.option:disabled{cursor:default}.feedback{margin-top:18px;padding:16px;border-radius:12px;background:#182841;border:1px solid #3b5073}.feedback.good{border-color:#62e6b555;background:#12342f}.feedback.bad{border-color:#ff7d9455;background:#351e2a}.feedback strong{display:block;margin-bottom:5px}.feedback p{font-size:13px;color:#c5d3e8;margin:0}.quiz-footer{display:flex;justify-content:space-between;gap:10px;margin-top:20px;align-items:center}.quiz-footer .hint{font-size:11px;color:var(--muted)}.select{background:#131f34;border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--text);max-width:100%}
+.result{text-align:center;padding:28px 0}.result-score{width:130px;height:130px;border-radius:50%;margin:20px auto;display:grid;place-items:center;background:conic-gradient(var(--cyan) var(--angle),#26344d 0);position:relative}.result-score:before{content:"";position:absolute;inset:9px;background:#101a2d;border-radius:50%}.result-score div{position:relative}.result-score strong{display:block;font-size:32px}.result-score small{font-size:10px;color:var(--muted)}.result h2{font-size:30px;margin:10px 0}.result p{color:var(--muted);max-width:520px;margin:0 auto 20px}.result-breakdown{text-align:left;max-width:600px;margin:20px auto;display:grid;gap:10px}
+.readiness-hero{display:grid;grid-template-columns:220px 1fr;gap:25px;align-items:center}.readiness-ring{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;margin:auto;background:conic-gradient(var(--cyan) var(--angle),#24334d 0);position:relative}.readiness-ring:before{content:"";position:absolute;inset:12px;background:#101a2d;border-radius:50%}.readiness-ring div{position:relative;text-align:center}.readiness-ring strong{font-size:35px;display:block}.readiness-ring span{font-size:11px;color:var(--muted)}.readiness-copy h2{font-size:25px;margin:0 0 8px}.readiness-copy p{color:var(--muted);margin:0 0 14px}.recommendations{display:grid;gap:10px}.recommendation{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:14px;background:#111d30}.recommendation .r-icon{font-size:19px}.recommendation strong{display:block;font-size:13px}.recommendation p{font-size:12px;color:var(--muted);margin:3px 0 0}.about-copy{max-width:760px;color:#bdcbe0}.about-copy h3{color:var(--text);margin-top:25px}.footer{border-top:1px solid #ffffff10;margin-top:35px;padding-top:18px;color:#7285a5;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;bottom:20px;right:20px;padding:12px 16px;background:#172a43;border:1px solid #3c587a;border-radius:12px;box-shadow:var(--shadow);z-index:10;animation:appear .2s ease}
+@media(max-width:1000px){.shell{grid-template-columns:76px minmax(0,1fr)}.sidebar{padding:22px 10px}.brand{justify-content:center;padding:0}.brand-text,.nav-label,.nav button .nav-text,.side-bottom{display:none}.nav button{justify-content:center;padding:13px 8px}.hero{grid-template-columns:1fr}.hero-art{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cards3{grid-template-columns:1fr}.domain-card{min-height:190px}}
+@media(max-width:640px){.shell{display:block}.sidebar{position:sticky;top:0;z-index:5;height:auto;border-right:0;border-bottom:1px solid #ffffff12;padding:10px 12px;display:block}.brand{display:none}.nav{display:flex;justify-content:space-around;gap:3px}.nav-label{display:none}.nav button{padding:9px 10px;flex:1;justify-content:center;font-size:10px;gap:4px;flex-direction:column}.nav button .ico{font-size:16px}.nav button .nav-text{display:block;font-size:10px}main{padding:22px 15px 35px}.topbar{align-items:flex-start}.status{display:none}.topbar h1{font-size:25px}.top-actions .btn{padding:8px 10px}.hero-card{padding:23px}.stats{gap:9px}.stat{padding:14px}.stat strong{font-size:25px}.grid-two{grid-template-columns:1fr}.readiness-hero{grid-template-columns:1fr}.readiness-copy{text-align:center}.quiz-footer{align-items:stretch;flex-direction:column}.quiz-footer .btn{width:100%}.quiz-toolbar{align-items:flex-start;flex-direction:column}.footer{font-size:9px}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="shell">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark" aria-hidden="true">C</div><div class="brand-text"><strong>CloudReady</strong><small>AZ-900 coach</small></div></div>
+  <div><div class="nav-label" id="nav-label">WORKSPACE</div><nav class="nav" id="nav" aria-labelledby="nav-label">
+    <button type="button" class="active" data-page="overview" aria-current="page" aria-label="Overview"><span class="ico" aria-hidden="true">◈</span><span class="nav-text">Overview</span></button>
+    <button type="button" data-page="quiz" aria-label="Practice quiz"><span class="ico" aria-hidden="true">▣</span><span class="nav-text">Practice quiz</span></button>
+    <button type="button" data-page="topics" aria-label="Topic explorer"><span class="ico" aria-hidden="true">⌘</span><span class="nav-text">Topic explorer</span></button>
+    <button type="button" data-page="readiness" aria-label="Readiness"><span class="ico" aria-hidden="true">◉</span><span class="nav-text">Readiness</span></button>
+    <button type="button" data-page="about" aria-label="About"><span class="ico" aria-hidden="true">ⓘ</span><span class="nav-text">About</span></button>
+  </nav></div>
+  <div class="side-bottom"><span class="pill">✦ Learn by doing</span><p>Small steps. Strong fundamentals. A clearer path to exam day.</p><button type="button" class="btn small" data-action="start-mixed">Start a quiz ↗</button></div>
+</aside>
+<main id="main">
+  <header class="topbar"><div><div class="eyebrow">AZ-900 EXAM COACH</div><h1 id="page-title">Your cloud journey starts here.</h1></div><div class="top-actions"><span class="status"><span class="dot" aria-hidden="true"></span> Progress saved locally</span><button type="button" class="btn ghost small" id="reset-btn">↻ Reset</button></div></header>
+  <section class="page active" id="page-overview" aria-labelledby="page-title">
+    <div class="hero"><div class="hero-card"><span class="pill">✦ YOUR PERSONAL STUDY SPACE</span><h2>Make cloud concepts <span>click.</span></h2><p>Practise the fundamentals, learn from every answer, and find out which Azure topics deserve your attention next.</p><div class="hero-actions"><button type="button" class="btn primary" data-action="start-mixed">Start practice <span aria-hidden="true">→</span></button><button type="button" class="btn ghost" data-page="topics">Explore topics</button></div></div><div class="hero-art" aria-hidden="true"><div class="orb"><div class="orb-core"></div></div></div></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-top">Questions answered <span class="stat-icon">▤</span></div><strong id="stat-answered">0</strong><small>Unique questions with a saved answer</small></div>
+      <div class="stat"><div class="stat-top">Overall accuracy <span class="stat-icon">◎</span></div><strong id="stat-accuracy">—</strong><small>Correct answers / attempted</small></div>
+      <div class="stat"><div class="stat-top">Topics practised <span class="stat-icon">⌘</span></div><strong id="stat-topics">0<span style="font-size:15px;color:var(--muted)"> / 3</span></strong><small>Build breadth, not just a score</small></div>
+      <div class="stat"><div class="stat-top">Readiness estimate <span class="stat-icon">↗</span></div><strong id="stat-ready">—</strong><small>Practice signal, not a pass guarantee</small></div>
+    </div>
+    <div class="grid-two">
+      <div class="card"><div class="section-head"><div><h3>Topic performance</h3><p>See where your knowledge is growing</p></div><button type="button" class="btn ghost small" data-page="readiness">Details ↗</button></div><div class="topic-list" id="overview-topics"></div></div>
+      <div class="card"><div class="section-head"><div><h3>Your next best move</h3><p>A useful next step based on your activity</p></div></div><div class="next-card" id="next-move"></div><div style="height:13px"></div><div class="section-head"><div><h3>Recent activity</h3><p>Your latest completed sessions</p></div></div><div id="recent-activity" class="activity-empty">Your first quiz is waiting. Take a short practice set to start building your learning picture.</div></div>
+    </div>
+  </section>
+  <section class="page" id="page-topics" hidden inert aria-hidden="true"><div class="section-head"><div><h3>Explore the AZ-900 skills map</h3><p>Three learning areas. A practical route through the fundamentals.</p></div><span class="pill">2026 skills outline</span></div><div class="cards3" id="topic-cards"></div><div class="card" style="margin-top:18px"><div class="section-head"><div><h3>Concept quick guide</h3><p>Short reminders for common exam distinctions</p></div></div><div class="cards3" id="concept-cards"></div></div></section>
+  <section class="page" id="page-quiz" hidden><div class="quiz-wrap" id="quiz-root"></div></section>
+  <section class="page" id="page-readiness" hidden><div class="card readiness-hero"><div class="readiness-ring" id="readiness-ring" role="img" aria-labelledby="readiness-number"><div><strong id="readiness-number">—</strong><span>READINESS</span></div></div><div class="readiness-copy"><span class="pill">YOUR LEARNING SIGNAL</span><h2 id="readiness-heading">Start with a practice set</h2><p id="readiness-description">Answer questions across the three learning areas to build a more useful readiness estimate. The score is a rough in-app signal only — not a prediction or guarantee of passing AZ-900.</p><button type="button" class="btn primary" data-action="start-mixed">Build my baseline →</button></div></div><div class="grid-two" style="margin-top:18px"><div class="card"><div class="section-head"><div><h3>Domain coverage</h3><p>Accuracy and attempted questions by domain</p></div></div><div class="topic-list" id="readiness-topics"></div></div><div class="card"><div class="section-head"><div><h3>Recommended revision</h3><p>Practical next steps, prioritised by your results</p></div></div><div class="recommendations" id="recommendations"></div></div></div><p style="color:var(--muted);font-size:11px;margin-top:14px">Method: readiness combines latest-answer accuracy with domain coverage. It appears only after at least 8 unique questions and practice in all 3 domains. It is a rough in-app heuristic, not a prediction or guarantee of passing.</p></section>
+  <section class="page" id="page-about" hidden><div class="card about-copy"><span class="pill">INDEPENDENT LEARNING PROJECT</span><h2 style="font-size:30px;letter-spacing:-1px">Learn the why, not just the answer.</h2><p>CloudReady is an interactive AZ-900 practice companion designed to make cloud fundamentals feel less abstract. Every question includes an explanation so a wrong answer can still move your learning forward.</p><h3>What it includes</h3><ul><li>Original multiple-choice practice questions across all three AZ-900 skill areas.</li><li>Immediate feedback and explanations after each answer.</li><li>Topic-level performance, local progress saving, and targeted revision suggestions.</li><li>A readiness estimate that clearly communicates its limitations.</li></ul><h3>Content and accuracy</h3><p>Topics are organised around Microsoft's published AZ-900 skills measured as of July 20, 2026. Questions are independently written for practice and are not official exam questions. Always consult current Microsoft Learn documentation for authoritative guidance.</p><p><a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900" target="_blank" rel="noreferrer" style="color:var(--cyan)">Open the official AZ-900 study guide ↗</a></p><h3>Privacy by design</h3><p>Your quiz activity is stored in this browser using localStorage. There is no account, server, or external AI call. Clearing browser storage or using another device will not carry your progress across.</p><h3>Disclaimer</h3><p>CloudReady is an independent learning project. It is not affiliated with or endorsed by Microsoft. AZ-900 is a Microsoft certification. Practice questions are original and are not official exam questions.</p></div></section>
+  <footer class="footer"><span>© 2026 CloudReady · Built for learning</span><span>Unofficial AZ-900 study companion · Local-first</span></footer>
+</main>
+</div>
+<script>
+const DOMAINS=[
+{id:"cloud",short:"Cloud concepts",name:"Describe cloud concepts",weight:28,icon:"☁",desc:"Understand cloud computing, service models, benefits, and consumption-based pricing.",topics:["Cloud computing","Shared responsibility","Public, private & hybrid cloud","Consumption-based pricing","IaaS, PaaS & SaaS","Scalability & serverless"]},
+{id:"architecture",short:"Azure architecture",name:"Describe Azure architecture and services",weight:38,icon:"◈",desc:"Explore Azure's global infrastructure, compute, networking, storage, identity, and security.",topics:["Regions & availability zones","Resources & subscriptions","Compute & hosting","Networking","Storage & redundancy","Identity & security"]},
+{id:"governance",short:"Management & governance",name:"Describe Azure management and governance",weight:34,icon:"◉",desc:"Learn how Azure helps organisations manage costs, enforce governance, deploy resources, and monitor services.",topics:["Cost management & tags","Azure Policy & locks","Management tools & IaC","Azure Advisor & Service Health","Azure Monitor & insights","Compliance & Purview"]}
+];
+const Q=[
+{d:"cloud",t:"Cloud computing",diff:"Easy",q:"A company wants to use computing resources without buying and maintaining physical servers. Which approach best fits?",o:["On-premises infrastructure","Cloud computing","A local peer-to-peer network","A dedicated desktop workstation"],a:1,e:"Cloud computing provides computing services over a network on demand, reducing the need to purchase and maintain all underlying physical infrastructure.",w:"On-premises infrastructure requires the organisation to manage its own physical equipment. A local network or workstation does not provide the same on-demand cloud service model."},
+{d:"cloud",t:"Cloud models",diff:"Easy",q:"An organisation must keep certain workloads in its own datacentre but wants to use public cloud services for other workloads. Which model fits best?",o:["Public cloud only","Private cloud only","Hybrid cloud","Software as a Service"],a:2,e:"A hybrid cloud combines private infrastructure with public cloud services, allowing workloads and data to be placed according to business needs.",w:"Public-only and private-only models do not describe the combination. SaaS is a service type, not a deployment model."},
+{d:"cloud",t:"Service types",diff:"Medium",q:"A developer wants to deploy an application without managing the operating system or runtime infrastructure. Which cloud service type is most suitable?",o:["IaaS","PaaS","On-premises hosting","Colocation"],a:1,e:"Platform as a Service (PaaS) provides a managed platform for deploying applications, reducing the customer's responsibility for the underlying operating system and infrastructure.",w:"IaaS gives the customer more infrastructure management responsibility. On-premises hosting and colocation still require the organisation to manage more of the environment."},
+{d:"cloud",t:"Service types",diff:"Easy",q:"Which example best represents Software as a Service (SaaS)?",o:["Renting a virtual machine and installing an OS","Using a provider-hosted email application through a browser","Buying a physical server","Creating a subnet"],a:1,e:"SaaS delivers a complete application managed by the provider and accessed by users, commonly through a browser or app.",w:"A rented VM is closer to IaaS. Buying hardware is not a cloud service, and a subnet is a networking construct."},
+{d:"cloud",t:"Shared responsibility",diff:"Medium",q:"In a typical cloud model, who is responsible for protecting a customer's data and managing user access appropriately?",o:["The cloud provider alone","The customer alone for every layer","The customer, as part of shared responsibility","The internet service provider"],a:2,e:"Cloud security uses a shared-responsibility model. Providers secure parts of the underlying cloud, while customers retain responsibilities such as data, identities, and access configuration.",w:"Responsibility is not entirely transferred to the provider or assigned to the ISP. The exact split varies by service type."},
+{d:"cloud",t:"Consumption-based pricing",diff:"Easy",q:"What is a key characteristic of consumption-based cloud pricing?",o:["Paying only for resources consumed under the pricing terms","Paying the same fixed cost regardless of usage in every case","Buying all hardware before using a service","All services are free below a fixed threshold"],a:0,e:"Consumption-based pricing charges according to measured use or provisioned resources under the service's pricing model.",w:"Cloud prices are not universally fixed or free. Customers typically do not need to buy the provider's physical hardware."},
+{d:"cloud",t:"Cloud benefits",diff:"Medium",q:"An online shop experiences a large traffic increase during a promotion. Which cloud benefit describes increasing resources to handle the demand?",o:["Governance","Elasticity and scalability","Data sovereignty","Manual provisioning"],a:1,e:"Scalability is the ability to handle growth in workload; elasticity refers to adjusting resources as demand changes.",w:"Governance and data sovereignty address different concerns. Manual provisioning is an operational approach, not the cloud benefit described."},
+{d:"cloud",t:"Serverless",diff:"Medium",q:"A team wants code to run in response to events without managing the underlying servers. Which concept best matches?",o:["Serverless computing","A private subnet","A reserved desktop","Manual datacentre expansion"],a:0,e:"Serverless lets developers focus on code while the provider manages server infrastructure; billing and scaling depend on the service model.",w:"Networking constructs, desktops, and manual infrastructure expansion do not describe event-driven serverless execution."},
+{d:"architecture",t:"Regions & availability zones",diff:"Easy",q:"What is the main purpose of Azure availability zones within a region?",o:["To group user accounts by department","To provide physically separate datacentre locations for resilience","To replace all resource groups","To calculate monthly costs"],a:1,e:"Availability zones are physically separate locations within an Azure region, designed to help protect workloads against datacentre-level failures.",w:"They are not identity, resource grouping, or billing tools."},
+{d:"architecture",t:"Resource hierarchy",diff:"Medium",q:"Which Azure scope can contain and organise multiple Azure resources that are managed together?",o:["Resource group","Availability zone","Azure DNS record","Storage tier"],a:0,e:"A resource group is a logical container for Azure resources that share a lifecycle or management purpose.",w:"Availability zones are infrastructure locations; DNS records map names; storage tiers describe data access/cost characteristics."},
+{d:"architecture",t:"Subscriptions",diff:"Medium",q:"Which statement best describes an Azure subscription?",o:["A physical rack in a datacentre","A boundary used for billing and access management that contains resources","A type of virtual network subnet","A single Azure region"],a:1,e:"An Azure subscription provides a management and billing boundary for Azure resources and is associated with access controls.",w:"A subscription is a logical construct, not physical infrastructure, a subnet, or a region."},
+{d:"architecture",t:"Compute",diff:"Easy",q:"Which Azure compute option is most like renting a computer where you manage the operating system?",o:["Azure Virtual Machines","Azure DNS","Azure Policy","Microsoft Purview"],a:0,e:"Azure Virtual Machines provide virtualised compute while customers manage the guest operating system and much of its configuration.",w:"DNS handles name resolution, Policy enforces governance rules, and Purview supports data governance."},
+{d:"architecture",t:"Compute",diff:"Medium",q:"A developer needs to run a small function in response to an event without provisioning a server. Which service category is most relevant?",o:["Virtual machine scale set","Serverless functions","Azure Resource Manager template","VPN Gateway"],a:1,e:"Serverless function services execute code in response to triggers while the platform manages underlying server infrastructure.",w:"Scale sets manage groups of VMs; ARM templates describe deployments; VPN Gateway connects networks."},
+{d:"architecture",t:"Networking",diff:"Easy",q:"What is the primary role of an Azure Virtual Network (VNet)?",o:["To organise identity sign-in methods","To provide an isolated networking environment for Azure resources","To estimate resource costs","To create compliance reports"],a:1,e:"A VNet enables Azure resources to communicate securely with each other, the internet, and on-premises networks according to configuration.",w:"Identity, pricing, and compliance reporting are separate functions."},
+{d:"architecture",t:"Networking",diff:"Medium",q:"An organisation wants a private connection from its premises to Microsoft cloud services that does not traverse the public internet. Which service is designed for this?",o:["Azure Advisor","ExpressRoute","Azure Cost Management","Azure Monitor"],a:1,e:"Azure ExpressRoute provides private connectivity between an organisation's network and Microsoft cloud services through a connectivity provider.",w:"Advisor gives recommendations; Cost Management analyses spending; Monitor collects and analyses telemetry."},
+{d:"architecture",t:"Storage",diff:"Medium",q:"Which Azure Storage redundancy option replicates data synchronously across availability zones within a region?",o:["Locally redundant storage (LRS)","Zone-redundant storage (ZRS)","Archive access tier","A resource lock"],a:1,e:"Zone-redundant storage replicates data across availability zones in the primary region to improve resilience to zone failures.",w:"LRS keeps replicas within a single physical location. Archive is an access tier, and a resource lock protects resource operations."},
+{d:"architecture",t:"Storage",diff:"Easy",q:"Which service is designed to help assess and migrate on-premises servers, databases, and applications to Azure?",o:["Azure Migrate","Microsoft Entra ID","Azure Policy","Azure DNS"],a:0,e:"Azure Migrate provides tools to discover, assess, and help migrate on-premises workloads to Azure.",w:"Entra ID manages identity; Policy evaluates governance compliance; Azure DNS hosts DNS zones."},
+{d:"architecture",t:"Identity & access",diff:"Easy",q:"Which Azure service provides identity and access capabilities, including sign-in and multifactor authentication?",o:["Microsoft Entra ID","Azure Data Box","Azure Advisor","Azure Files"],a:0,e:"Microsoft Entra ID is Microsoft's cloud identity and access management service, supporting authentication and access capabilities.",w:"Data Box transfers data, Advisor offers recommendations, and Azure Files provides managed file shares."},
+{d:"architecture",t:"Identity & access",diff:"Medium",q:"An administrator wants to grant a user permission to manage virtual machines in a resource group without granting access to everything else. Which feature should they use?",o:["Azure role-based access control (RBAC)","A storage access tier","Azure Service Health","Azure pricing calculator"],a:0,e:"Azure RBAC assigns roles to users, groups, or identities at a chosen scope, following least-privilege principles.",w:"Storage tiers affect access/cost patterns, Service Health reports service issues, and the pricing calculator estimates costs."},
+{d:"architecture",t:"Security",diff:"Medium",q:"Which principle means verifying explicitly, using least privilege, and assuming a breach?",o:["Zero Trust","Consumption-based billing","High availability","Resource tagging"],a:0,e:"Zero Trust is a security model built around verifying explicitly, granting least privilege, and assuming breach.",w:"Billing, availability, and tags are not the Zero Trust security principle."},
+{d:"architecture",t:"Security",diff:"Medium",q:"Which service helps assess security posture and provide threat protection recommendations for cloud workloads?",o:["Microsoft Defender for Cloud","Azure Cost Management","Azure DNS","Azure Resource Manager"],a:0,e:"Microsoft Defender for Cloud helps improve security posture and provides security recommendations and threat protection capabilities.",w:"The other services focus on costs, DNS, and resource deployment/management."},
+{d:"governance",t:"Cost management",diff:"Easy",q:"Which tool helps estimate the expected cost of Azure services before deployment?",o:["Azure Pricing Calculator","Azure Service Health","Microsoft Entra ID","Azure Monitor alerts"],a:0,e:"The Azure Pricing Calculator helps estimate costs for planned Azure configurations before deployment.",w:"Service Health reports Azure service issues, Entra ID handles identity, and Monitor alerts respond to telemetry conditions."},
+{d:"governance",t:"Tags",diff:"Easy",q:"A company wants to group Azure costs by project and department for reporting. Which feature is useful?",o:["Resource tags","Availability sets","VPN tunnels","Passwordless authentication"],a:0,e:"Tags are metadata name-value pairs that can help organise resources and support cost reporting and management.",w:"The other options address availability, networking, and identity authentication."},
+{d:"governance",t:"Azure Policy",diff:"Medium",q:"An organisation wants to enforce that resources in a subscription must use approved regions. Which service can evaluate and enforce this rule?",o:["Azure Policy","Azure Advisor","Azure Monitor","Azure Storage Explorer"],a:0,e:"Azure Policy evaluates resources against organisational rules and can audit or enforce compliant configurations.",w:"Advisor recommends improvements; Monitor collects telemetry; Storage Explorer manages storage data."},
+{d:"governance",t:"Resource locks",diff:"Easy",q:"An administrator wants to help prevent an important resource from being accidentally deleted. Which feature should be applied?",o:["A resource lock","A cost alert only","A DNS zone","A management group name"],a:0,e:"Azure resource locks can prevent deletion or modification, depending on the lock type, even when a user has permissions that would otherwise allow the operation.",w:"Cost alerts, DNS zones, and names do not provide the same deletion protection."},
+{d:"governance",t:"Management tools",diff:"Medium",q:"Which option provides a browser-based command-line environment for managing Azure resources?",o:["Azure Cloud Shell","Azure Pricing Calculator","Microsoft Purview","Azure Service Health"],a:0,e:"Azure Cloud Shell is a browser-accessible shell for managing Azure resources and includes common command-line tools.",w:"The others support cost estimation, data governance, and service status."},
+{d:"governance",t:"Infrastructure as code",diff:"Medium",q:"A team wants to define and repeatedly deploy infrastructure using declarative template files. Which concept does this describe?",o:["Infrastructure as code (IaC)","Manual scaling","Multifactor authentication","Data classification"],a:0,e:"Infrastructure as code defines infrastructure through machine-readable files, enabling repeatable and consistent deployments.",w:"The other options describe operational scaling, identity security, and data governance."},
+{d:"governance",t:"Azure Advisor",diff:"Easy",q:"Which service analyses Azure deployments and provides recommendations related to reliability, security, performance, operational excellence, and cost?",o:["Azure Advisor","Azure DNS","Azure Files","Microsoft Entra Domain Services"],a:0,e:"Azure Advisor analyses resource configuration and usage to provide recommendations across several operational categories.",w:"DNS, file shares, and managed domain services serve different purposes."},
+{d:"governance",t:"Service Health",diff:"Medium",q:"Where should an Azure customer look for personalised information about Azure service issues and planned maintenance that may affect their resources?",o:["Azure Service Health","Azure Pricing Calculator","Azure Policy","Azure Storage tiers"],a:0,e:"Azure Service Health provides information about Azure service incidents, planned maintenance, and advisories relevant to a customer's services and regions.",w:"The others focus on cost estimates, governance rules, and storage characteristics."},
+{d:"governance",t:"Monitoring",diff:"Medium",q:"Which Azure service collects and analyses monitoring data from applications and infrastructure?",o:["Azure Monitor","Azure Resource Manager templates","Azure Policy only","Azure Migrate"],a:0,e:"Azure Monitor is Azure's monitoring service for collecting, analysing, and acting on telemetry from cloud and hybrid environments.",w:"ARM templates deploy resources, Policy governs compliance, and Migrate helps with workload migration."},
+{d:"governance",t:"Data governance",diff:"Medium",q:"Which Microsoft service helps organisations discover, classify, and govern data across their data estate?",o:["Microsoft Purview","Azure VPN Gateway","Azure Virtual Machines","Azure Availability Sets"],a:0,e:"Microsoft Purview provides data governance capabilities, including discovering and classifying data across supported environments.",w:"VPN Gateway is networking, VMs provide compute, and availability sets help improve VM availability."},
+{d:"governance",t:"Monitoring",diff:"Medium",q:"A team wants to query and analyse log data collected by Azure Monitor. Which capability is most directly associated with that task?",o:["Log Analytics","Azure Policy initiatives only","Azure DNS","Azure Reservations"],a:0,e:"Log Analytics workspaces and queries support analysing log data collected by Azure Monitor.",w:"Policy governs resource compliance, DNS resolves names, and reservations relate to pricing commitments."}
+];
+const CONCEPTS=[
+["IaaS vs PaaS vs SaaS","IaaS: manage the OS and apps. PaaS: focus on apps on a managed platform. SaaS: use a complete provider-managed application."],
+["Scalability vs elasticity","Scalability handles changes in workload capacity; elasticity adjusts resources dynamically as demand rises or falls."],
+["Regions vs availability zones","A region is a geographic area with Azure datacentres. Zones are separate physical locations within a region."],
+["Azure Policy vs RBAC","Policy helps ensure resources comply with rules. RBAC controls who can perform actions on resources."],
+["Advisor vs Monitor vs Service Health","Advisor recommends improvements. Monitor collects and analyses telemetry. Service Health reports Azure service incidents and maintenance."],
+["Tags vs resource locks","Tags add metadata for organisation and reporting. Locks help prevent accidental deletion or modification."]
+];
+const STORE="cloudready-v1";
+const MIXED_SIZE=8;
+const MIN_READY_ATTEMPTS=8;
+const MIN_READY_DOMAINS=3;
+const TITLES={overview:"Your cloud journey starts here.",quiz:"Practice with purpose.",topics:"Explore the skills map.",readiness:"Know what to revise next.",about:"Built for better learning."};
+Q.forEach((item,i)=>{item.id=item.d+"-"+i});
+const Q_BY_ID=Object.fromEntries(Q.map(item=>[item.id,item]));
+const Q_BY_TEXT=Object.fromEntries(Q.map(item=>[item.q,item]));
+let currentPage="overview", state=emptyState(), quiz=null;
+function emptyState(){return {answers:{},sessions:[],questionSeen:[]}}
+function storageAvailable(){
+  try{
+    const k="__cr_test__";
+    localStorage.setItem(k,"1");
+    localStorage.removeItem(k);
+    return true;
+  }catch{return false}
+}
+function readAnswer(raw,item){
+  if(!raw||typeof raw!=="object"||Array.isArray(raw)) return undefined;
+  let val=raw[item.id];
+  if(val===undefined) val=raw[item.q];
+  const n=Number(val);
+  if(!Number.isInteger(n)||n<0||n>=item.o.length) return undefined;
+  return n;
+}
+function normalizeState(raw){
+  const next=emptyState();
+  if(!raw||typeof raw!=="object") return next;
+  Q.forEach(item=>{
+    const n=readAnswer(raw.answers,item);
+    if(n!==undefined) next.answers[item.id]=n;
+  });
+  const seen=new Set();
+  if(Array.isArray(raw.questionSeen)){
+    raw.questionSeen.forEach(key=>{
+      const item=Q_BY_ID[key]||Q_BY_TEXT[key];
+      if(item) seen.add(item.id);
+    });
+  }
+  Object.keys(next.answers).forEach(id=>seen.add(id));
+  next.questionSeen=[...seen];
+  if(Array.isArray(raw.sessions)){
+    next.sessions=raw.sessions.map(s=>{
+      if(!s||typeof s!=="object") return null;
+      const total=Number(s.total), correct=Number(s.correct), pct=Number(s.pct);
+      if(!Number.isFinite(total)||!Number.isFinite(correct)) return null;
+      const domain=s.domain==="mixed"||DOMAINS.some(d=>d.id===s.domain)?s.domain:"mixed";
+      const date=typeof s.date==="string"&&!Number.isNaN(Date.parse(s.date))?s.date:new Date().toISOString();
+      return {date,total,correct,pct:Number.isFinite(pct)?pct:Math.round((correct/Math.max(total,1))*100),domain};
+    }).filter(Boolean).slice(0,8);
+  }
+  return next;
+}
+function loadState(){
+  if(!storageAvailable()) return emptyState();
+  try{
+    const raw=localStorage.getItem(STORE);
+    if(!raw) return emptyState();
+    return normalizeState(JSON.parse(raw));
+  }catch{return emptyState()}
+}
+function save(){
+  if(!storageAvailable()) return;
+  try{localStorage.setItem(STORE,JSON.stringify(state))}catch{}}
+function domainById(id){return DOMAINS.find(d=>d.id===id)}
+function latestAnswer(item){return state.answers[item.id]}
+function statsFor(id){
+  const qs=Q.filter(item=>!id||item.d===id);
+  const answered=qs.filter(item=>latestAnswer(item)!==undefined);
+  const correct=answered.filter(item=>latestAnswer(item)===item.a).length;
+  return {total:qs.length,attempted:answered.length,correct,accuracy:answered.length?Math.round(correct/answered.length*100):0};
+}
+function topicStats(){return DOMAINS.map(d=>({...d,...statsFor(d.id)}))}
+function readinessReady(r){return r.attempted>=MIN_READY_ATTEMPTS&&r.covered>=MIN_READY_DOMAINS}
+function readiness(){
+  const ss=topicStats();
+  const covered=ss.filter(x=>x.attempted>0).length;
+  const attempted=ss.reduce((a,x)=>a+x.attempted,0);
+  const acc=attempted?ss.reduce((a,x)=>a+x.correct,0)/attempted:0;
+  return {ss,covered,attempted,accuracy:attempted?Math.round(acc*100):0,score:attempted?Math.round(acc*70+(covered/3)*30):0};
+}
+function shuffle(list){
+  const arr=[...list];
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+function pickMixed(size){
+  const buckets={};
+  DOMAINS.forEach(d=>buckets[d.id]=shuffle(Q.filter(item=>item.d===d.id)));
+  const out=[];
+  let i=0;
+  while(out.length<size){
+    let added=false;
+    for(const d of DOMAINS){
+      if(out.length>=size) break;
+      if(buckets[d.id][i]){out.push(buckets[d.id][i]);added=true}
+    }
+    if(!added) break;
+    i++;
+  }
+  return shuffle(out);
+}
+function esc(value){
+  return String(value).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+}
+function page(p){
+  if(!TITLES[p]) return;
+  currentPage=p;
+  document.querySelectorAll(".page").forEach(el=>{
+    const on=el.id==="page-"+p;
+    el.classList.toggle("active",on);
+    el.toggleAttribute("hidden",!on);
+    el.toggleAttribute("inert",!on);
+    if(on) el.removeAttribute("aria-hidden");
+    else el.setAttribute("aria-hidden","true");
+  });
+  document.querySelectorAll("#nav [data-page]").forEach(btn=>{
+    const on=btn.dataset.page===p;
+    btn.classList.toggle("active",on);
+    if(on) btn.setAttribute("aria-current","page");
+    else btn.removeAttribute("aria-current");
+  });
+  document.getElementById("page-title").textContent=TITLES[p];
+  if(p==="overview"||p==="readiness") renderDashboard();
+  if(p==="topics") renderTopics();
+  if(p==="quiz") renderQuizView();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function confirmReplaceQuiz(){
+  if(!quiz||quiz.phase==="home") return true;
+  if(quiz.phase==="results") return true;
+  return confirm("Leave this quiz and start a new one? Your current in-progress answers will not be stored as a completed session.");
+}
+function startQuiz(domain=null,options={}){
+  if(!confirmReplaceQuiz()) return;
+  const missedOnly=!!options.missedOnly;
+  let list;
+  if(Array.isArray(options.list)&&options.list.length){
+    list=shuffle(options.list.filter(Boolean));
+  }else if(missedOnly){
+    list=Q.filter(item=>(!domain||item.d===domain)&&latestAnswer(item)!==undefined&&latestAnswer(item)!==item.a);
+  }else if(domain){
+    list=shuffle(Q.filter(item=>item.d===domain));
+  }else{
+    list=pickMixed(MIXED_SIZE);
+  }
+  if(!list.length){
+    toast(missedOnly?"No missed questions in this selection yet.":"No questions available for this selection.");
+    return;
+  }
+  quiz={list,idx:0,selected:null,checked:false,results:[],domain:domain||null,phase:"question",sessionSaved:false,retryOf:!!options.retryOf};
+  page("quiz");
+}
+function retryMissed(){
+  if(!quiz||!Array.isArray(quiz.results)){
+    toast("No missed questions in this selection yet.");
+    return;
+  }
+  const missed=quiz.results.filter(r=>!r.correct).map(r=>r.q);
+  const domain=quiz.domain;
+  if(!missed.length){
+    toast("You answered every question in this session correctly.");
+    return;
+  }
+  startQuiz(domain,{missedOnly:true,list:missed,retryOf:true});
+}
+function renderQuizView(){
+  if(quiz&&quiz.phase==="question") renderQuestion();
+  else if(quiz&&quiz.phase==="results") renderResults();
+  else renderQuizHome();
+}
+function renderQuizHome(){
+  quiz={phase:"home",domain:null,results:[],list:[]};
+  const counts=DOMAINS.map(d=>{
+    const s=statsFor(d.id);
+    return `<div class="domain-card"><div class="num">${esc(d.icon)} ${esc(d.short)}</div><h3>${esc(d.name)}</h3><p>${esc(d.desc)}</p><div class="count">${s.total} questions in this domain</div><button type="button" class="btn primary" data-domain="${esc(d.id)}">Practise this domain →</button></div>`;
+  }).join("");
+  document.getElementById("quiz-root").innerHTML=`<div class="quiz-card" style="margin-bottom:18px"><span class="pill">CHOOSE A PRACTICE SET</span><h2 class="question" style="margin-top:12px">Start mixed practice or focus on one AZ-900 domain.</h2><p style="color:var(--muted);margin:0 0 18px">Mixed quizzes draw ${MIXED_SIZE} questions across all three domains. Topic quizzes use that domain's full question set.</p><button type="button" class="btn primary" data-action="start-mixed">Start mixed quiz →</button></div><div class="cards3">${counts}</div>`;
+  document.querySelectorAll("#quiz-root [data-domain]").forEach(b=>b.addEventListener("click",()=>startQuiz(b.dataset.domain)));
+}
+function renderQuestion(){
+  const root=document.getElementById("quiz-root");
+  if(!quiz||!quiz.list[quiz.idx]){renderQuizHome();return}
+  const q=quiz.list[quiz.idx];
+  const domain=domainById(q.d);
+  const pct=Math.round((quiz.idx/quiz.list.length)*100);
+  const label=quiz.domain?domainById(quiz.domain).short:(quiz.retryOf?"RETRY MISSED":"MIXED PRACTICE");
+  root.innerHTML=`<div class="quiz-toolbar"><div><div class="eyebrow">${esc(label)}</div><div style="color:var(--muted);font-size:12px;margin-top:4px">Question ${quiz.idx+1} of ${quiz.list.length}</div></div><button type="button" class="btn ghost small" id="exit-quiz">✕ Exit quiz</button></div>
+    <div class="quiz-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Quiz progress"><span style="width:${pct}%"></span></div>
+    <div class="quiz-card"><div class="question-meta"><span class="tag">${esc(q.t)}</span><span class="tag ${q.diff==="Easy"?"easy":""}">${esc(q.diff)}</span><span class="tag">${esc(domain.short)}</span></div>
+    <h2 class="question" id="question-text" tabindex="-1">${esc(q.q)}</h2>
+    <div class="options" role="radiogroup" aria-labelledby="question-text">${q.o.map((opt,i)=>{
+      let cls="option";
+      if(quiz.checked&&i===q.a) cls+=" correct";
+      else if(quiz.checked&&i===quiz.selected&&i!==q.a) cls+=" wrong";
+      else if(!quiz.checked&&i===quiz.selected) cls+=" selected";
+      const checked=i===quiz.selected;
+      return `<button type="button" class="${cls}" data-option="${i}" role="radio" aria-checked="${checked}" ${quiz.checked?"disabled":""}><span class="letter" aria-hidden="true">${"ABCD"[i]}</span><span>${esc(opt)}</span>${quiz.checked&&i===q.a?'<span style="margin-left:auto;color:var(--green)" aria-hidden="true">✓</span>':""}</button>`;
+    }).join("")}</div>
+    ${quiz.checked?`<div class="feedback ${quiz.selected===q.a?"good":"bad"}" role="status"><strong>${quiz.selected===q.a?"✓ That's right.":"↗ Let's learn from that."}</strong><p>${esc(q.e)}</p><p style="margin-top:8px;color:#9fb4d2"><b>Why not the others?</b> ${esc(q.w)}</p><p class="sr-only">Correct answer: ${esc(q.o[q.a])}</p></div>`:""}
+    <div class="quiz-footer"><span class="hint">${quiz.checked?"Explanation unlocked — take a moment to understand why.":"Choose the best answer, then check your thinking."}</span>${!quiz.checked?`<button type="button" class="btn primary" id="check-answer" ${quiz.selected===null?"disabled":""}>Check answer →</button>`:`<button type="button" class="btn primary" id="next-question">${quiz.idx===quiz.list.length-1?"View results":"Next question →"}</button>`}</div></div>`;
+  root.querySelectorAll("[data-option]").forEach(b=>b.addEventListener("click",()=>{
+    if(quiz.checked) return;
+    quiz.selected=Number(b.dataset.option);
+    renderQuestion();
+  }));
+  document.getElementById("check-answer")?.addEventListener("click",checkAnswer);
+  document.getElementById("next-question")?.addEventListener("click",nextQuestion);
+  document.getElementById("exit-quiz")?.addEventListener("click",()=>{quiz=null;page("overview")});
+  if(quiz.checked) document.getElementById("next-question")?.focus({preventScroll:true});
+  else if(quiz.selected!==null) root.querySelector(`[data-option="${quiz.selected}"]`)?.focus({preventScroll:true});
+  else document.getElementById("question-text")?.focus({preventScroll:true});
+}
+function checkAnswer(){
+  if(!quiz||quiz.phase!=="question"||quiz.selected===null||quiz.checked) return;
+  const q=quiz.list[quiz.idx];
+  quiz.checked=true;
+  const selected=quiz.selected;
+  const correct=selected===q.a;
+  quiz.results[quiz.idx]={q,selected,correct};
+  state.answers[q.id]=selected;
+  if(!state.questionSeen.includes(q.id)) state.questionSeen.push(q.id);
+  save();
+  renderQuestion();
+}
+function nextQuestion(){
+  if(!quiz||quiz.phase!=="question") return;
+  if(!quiz.checked) return;
+  if(quiz.idx<quiz.list.length-1){
+    quiz.idx++;
+    const existing=quiz.results[quiz.idx];
+    quiz.selected=existing?existing.selected:null;
+    quiz.checked=!!existing;
+    renderQuestion();
+  }else finishQuiz();
+}
+function finishQuiz(){
+  if(!quiz||quiz.phase==="results"){renderResults();return}
+  const total=quiz.results.filter(Boolean).length;
+  const correct=quiz.results.filter(x=>x&&x.correct).length;
+  const pct=total?Math.round(correct/total*100):0;
+  quiz.phase="results";
+  quiz.sessionSummary={total,correct,pct,domain:quiz.domain||"mixed"};
+  if(!quiz.sessionSaved){
+    state.sessions.unshift({date:new Date().toISOString(),...quiz.sessionSummary});
+    state.sessions=state.sessions.slice(0,8);
+    quiz.sessionSaved=true;
+    save();
+  }
+  renderResults();
+}
+function renderResults(){
+  if(!quiz||!quiz.sessionSummary){renderQuizHome();return}
+  const {total,correct,pct}=quiz.sessionSummary;
+  const sessionIds=new Set(quiz.results.filter(Boolean).map(r=>r.q.d));
+  const breakdown=topicStats().filter(s=>sessionIds.has(s.id));
+  const missedCount=quiz.results.filter(r=>r&&!r.correct).length;
+  document.getElementById("quiz-root").innerHTML=`<div class="quiz-card result"><span class="pill">SESSION COMPLETE</span>
+    <div class="result-score" style="--angle:${pct*3.6}deg"><div><strong>${pct}%</strong><small>ACCURACY</small></div></div>
+    <h2>${pct>=80?"Great work. Keep building.":pct>=60?"Good progress. Keep sharpening.":"Every mistake is useful data."}</h2>
+    <p>You answered ${correct} of ${total} questions correctly in this session. The percentages below use your latest answer for each question across practice, while this score is only for the quiz you just finished.</p>
+    <div class="result-breakdown">${breakdown.map(s=>`<div class="topic-row"><div><div class="topic-name">${esc(s.short)}</div><div class="bar"><span style="width:${s.accuracy}%"></span></div></div><div class="topic-score">${s.attempted?s.accuracy+"%":"—"}</div></div>`).join("")}</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px">
+      <button type="button" class="btn primary" id="retry-missed"${missedCount?"":" disabled"}>${missedCount?"Retry missed questions":"No missed questions"}</button>
+      <button type="button" class="btn" id="again">${quiz.domain?"Practise this topic again":"New mixed quiz"}</button>
+      <button type="button" class="btn ghost" id="to-dash">Dashboard</button>
+    </div></div>`;
+  document.getElementById("retry-missed").addEventListener("click",retryMissed);
+  document.getElementById("again").addEventListener("click",()=>startQuiz(quiz.domain||null));
+  document.getElementById("to-dash").addEventListener("click",()=>{quiz=null;page("overview")});
+}
+function formatSessionDate(value){
+  const t=Date.parse(value);
+  if(Number.isNaN(t)) return "Recent session";
+  try{return new Date(t).toLocaleString()}catch{return "Recent session"}
+}
+function renderDashboard(){
+  const r=readiness();
+  const ready=readinessReady(r);
+  document.getElementById("stat-answered").textContent=r.attempted;
+  document.getElementById("stat-accuracy").textContent=r.attempted?r.accuracy+"%":"—";
+  document.getElementById("stat-topics").innerHTML=r.covered+'<span style="font-size:15px;color:var(--muted)"> / 3</span>';
+  document.getElementById("stat-ready").textContent=ready?r.score+"%":"—";
+  document.getElementById("overview-topics").innerHTML=r.ss.map(s=>`<div class="topic-row"><div><div class="topic-name">${esc(s.short)}</div><div class="topic-meta">${s.attempted} answered · ${s.attempted?s.correct+" correct":"Not started"}</div><div class="bar"><span style="width:${s.accuracy}%"></span></div></div><div class="topic-score">${s.attempted?s.accuracy+"%":"—"}</div></div>`).join("");
+  const weakest=[...r.ss].sort((a,b)=>(a.attempted?a.accuracy:-1)-(b.attempted?b.accuracy:-1))[0];
+  document.getElementById("next-move").innerHTML=r.attempted?`<div class="big-icon" aria-hidden="true">🎯</div><h4>Strengthen ${esc(weakest.short)}</h4><p>${weakest.attempted?`Your current accuracy is ${weakest.accuracy}%. Review the explanations and try another focused set.`:"You haven't practised this domain yet. Start here to build balanced coverage."}</p><button type="button" class="btn primary small" data-domain="${esc(weakest.id)}">Practise this topic →</button>`:`<div class="big-icon" aria-hidden="true">🧭</div><h4>Start with a quick baseline</h4><p>Answer a few original questions to discover what you already know and what to revise next.</p><button type="button" class="btn primary small" data-action="start-mixed">Take your first quiz →</button>`;
+  document.querySelectorAll("#next-move [data-domain]").forEach(b=>b.addEventListener("click",()=>startQuiz(b.dataset.domain)));
+  document.getElementById("recent-activity").className=state.sessions.length?"":"activity-empty";
+  document.getElementById("recent-activity").innerHTML=state.sessions.length?state.sessions.slice(0,3).map(s=>`<div style="display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #ffffff0c"><div><strong style="font-size:12px">${s.domain==="mixed"?"Mixed practice":esc(domainById(s.domain)?.short||"Practice")}</strong><div style="font-size:10px;color:var(--muted)">${esc(formatSessionDate(s.date))}</div></div><strong style="color:${s.pct>=70?"var(--green)":"var(--cyan)"}">${s.pct}%</strong></div>`).join(""):"Your first quiz is waiting. Take a short practice set to start building your learning picture.";
+  document.getElementById("readiness-number").textContent=ready?r.score+"%":"—";
+  document.getElementById("readiness-ring").style.setProperty("--angle",(ready?r.score:0)*3.6+"deg");
+  document.getElementById("readiness-heading").textContent=!ready?"Keep practising to establish a baseline":r.score>=80?"Strong practice signal — keep testing breadth":r.score>=65?"Building confidence — target weaker topics":"A useful starting point — revisit core concepts";
+  document.getElementById("readiness-description").textContent=!ready?`You've answered ${r.attempted} unique questions across ${r.covered} of 3 domains. A readiness estimate appears only after at least ${MIN_READY_ATTEMPTS} questions and all ${MIN_READY_DOMAINS} domains. It is a rough in-app signal, not a prediction or guarantee of passing.`:`Your current practice accuracy is ${r.accuracy}% across ${r.attempted} unique questions and ${r.covered} domains. This is a rough in-app learning signal only — not a prediction or guarantee of passing AZ-900.`;
+  document.getElementById("readiness-topics").innerHTML=r.ss.map(s=>`<div class="topic-row"><div><div class="topic-name">${esc(s.short)}</div><div class="topic-meta">${s.attempted} attempted</div><div class="bar"><span style="width:${s.accuracy}%"></span></div></div><div class="topic-score">${s.attempted?s.accuracy+"%":"—"}</div></div>`).join("");
+  const recs=r.ss.slice().sort((a,b)=>(a.attempted?a.accuracy:0)-(b.attempted?b.accuracy:0)).slice(0,3);
+  document.getElementById("recommendations").innerHTML=recs.map((s,i)=>`<div class="recommendation"><div class="r-icon" aria-hidden="true">${i===0?"🎯":i===1?"📘":"🧩"}</div><div><strong>${s.attempted?"Review "+esc(s.short):"Start "+esc(s.short)}</strong><p>${s.attempted?`Accuracy ${s.accuracy}%. Retry a focused quiz and read every explanation.`:"No questions attempted yet. Start a topic quiz to build coverage."}</p><button type="button" class="btn ghost small" style="margin-top:8px" data-domain="${esc(s.id)}">Study topic →</button></div></div>`).join("");
+  document.querySelectorAll("#recommendations [data-domain]").forEach(b=>b.addEventListener("click",()=>startQuiz(b.dataset.domain)));
+}
+function renderTopics(){
+  document.getElementById("topic-cards").innerHTML=DOMAINS.map((d,i)=>{
+    const s=statsFor(d.id);
+    return `<div class="domain-card"><div class="num">DOMAIN 0${i+1} · ${d.weight}% EXAM WEIGHT</div><h3>${esc(d.icon)} ${esc(d.name)}</h3><p>${esc(d.desc)}</p><div class="count">${s.attempted} of ${s.total} questions answered · ${s.attempted?s.accuracy+"% accuracy":"Not started"}</div><button type="button" class="btn primary" data-domain="${esc(d.id)}">Practise this domain →</button></div>`;
+  }).join("");
+  document.getElementById("topic-cards").querySelectorAll("[data-domain]").forEach(b=>b.addEventListener("click",()=>startQuiz(b.dataset.domain)));
+  document.getElementById("concept-cards").innerHTML=CONCEPTS.map(c=>`<div class="domain-card" style="min-height:150px"><h3 style="font-size:15px;margin-top:0">${esc(c[0])}</h3><p>${esc(c[1])}</p></div>`).join("");
+}
+function toast(msg){
+  document.querySelectorAll(".toast").forEach(n=>n.remove());
+  const t=document.createElement("div");
+  t.className="toast";
+  t.setAttribute("role","status");
+  t.textContent=msg;
+  document.body.append(t);
+  setTimeout(()=>t.remove(),2400);
+}
+function resetProgress(){
+  if(!confirm("Reset all CloudReady practice progress saved in this browser? This cannot be undone.")) return;
+  state=emptyState();
+  quiz=null;
+  save();
+  renderDashboard();
+  renderTopics();
+  if(currentPage==="quiz") renderQuizHome();
+  toast("Progress reset.");
+}
+document.getElementById("nav").addEventListener("click",e=>{
+  const b=e.target.closest("[data-page]");
+  if(b) page(b.dataset.page);
+});
+document.addEventListener("click",e=>{
+  const p=e.target.closest("[data-page]");
+  if(p&&!p.closest("#nav")) page(p.dataset.page);
+  const a=e.target.closest("[data-action]");
+  if(a&&a.dataset.action==="start-mixed") startQuiz();
+});
+document.getElementById("reset-btn").addEventListener("click",resetProgress);
+state=loadState();
+if(!storageAvailable()){
+  document.querySelector(".status")?.replaceChildren(document.createTextNode("Progress will not persist in this browser"));
+}
+renderDashboard();
+renderTopics();
+</script>
+</body></html>
